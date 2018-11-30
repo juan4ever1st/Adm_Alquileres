@@ -13,13 +13,13 @@ public class Persona {
     
     //Creamos la operacion pedirDatos para el empleado vendedor
     public void pedirDatos(){
-        System.out.println("INGRESE SU NOMBRE: ");
+            System.out.println("    NOMBRE: ");
         Scanner nom = new Scanner(System.in);//Usamos la clase Scanner, creamos el objeto nom de tipo scanner
         this.nombre = nom.nextLine();//almacenamos en nombre: el dato recogido por la funcion de Scanner
-        System.out.println("INGRESE SU APELLIDO: ");
+        System.out.println("    APELLIDO: ");
         Scanner ape = new Scanner(System.in);//Usamos la clase Scanner, creamos el objeto nom de tipo scanner
         this.apellido = nom.nextLine();//almacenamos en nombre: el dato recogido por la funcion de Scanner
-        System.out.println("INGRESE NUMERO DE DNI: ");
+        System.out.println("    NUMERO DE DNI: ");
         Scanner numdni = new Scanner(System.in);
         this.dni = numdni.nextLine();
     }

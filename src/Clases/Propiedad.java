@@ -12,7 +12,7 @@ public class Propiedad {
     Propiedad() {
     }
 
-    //Creamos la operacion pedirDatos para el empleado vendedor
+    //Creamos la operacion pedirDatos
     public void pedirDatos() {
         System.out.println("INGRESE DIRECCION: ");
         Scanner nom = new Scanner(System.in);//Usamos la clase Scanner, creamos el objeto nom de tipo scanner
@@ -36,22 +36,22 @@ public class Propiedad {
         System.out.print("ID: " + id);
     }
 
-    //Getter, metodo para obtener el nombre de la persona en el objeto persona
+    //Getter, metodo para obtener 
     public String getDireccion() {
         return direccion;
     }
 
-    //Setter, metodo para asignar nombre persona al objeto persona
+    //Setter, metodo para asignar 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
-    //Getter, metodo para obtener el CUIL de la persona en el objeto persona
+    //Getter, metodo para obtener 
     public int gethabitaciones() {
         return cant_hab;
     }
 
-    //Setter, metodo para obtener asignar el apellido en el objeto persona
+    //Setter, metodo para asignar 
     public void setHabitaciones(int cant_hab) {
         this.cant_hab = cant_hab;
     }
