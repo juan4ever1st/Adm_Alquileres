@@ -1,18 +1,25 @@
 package Clases;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Contratacion {
-    Propietario array[] = new Propietario[100];
-    Inquilino arreglo[] = new Inquilino[100];
-    Propiedad vector[] = new Propiedad[100];
+    
+    private ArrayList<Propietario> propietario;
+    static ArrayList<Propietario> ListPropietario = new ArrayList<Propietario>();
+    static Iterator iterator = ListPropietario.iterator();
+    static ArrayList<Inquilino> ListInquilino = new ArrayList<Inquilino>();
+    static ArrayList<Propiedad> ListPropiedad = new ArrayList<Propiedad>();
+   
     public static void main(String[] args) {
         /*Metodo main declarado en Principal*/
 
         Persona propietario = new Persona();
         Persona inquilino = new Persona();
         Propietario propietario1 = new Propietario();
-        Propiedad propie = new Propiedad();
+        Inquilino inquilino1 = new Inquilino();
+        Propiedad propiedad1 = new Propiedad();
         Fecha hoy = new Fecha();
 
         // MENU DE OPCIONES CON DO
@@ -34,13 +41,12 @@ public class Contratacion {
                     Scanner respuesta = new Scanner(System.in);
                     int cantPr = respuesta.nextInt();
 
-                    Propietario array[] = new Propietario[cantPr];
 
                     System.out.println("INGRESO DE DATOS.\n");
                     for (int i = 0; i < cantPr; i++) {
-                        Propietario prop = new Propietario();
-                        prop.pedirDatos();
-                        array[i] = prop;
+                        propietario1.pedirDatos();
+                        ListPropietario.add(propietario1);
+
                     }
                     break;
 
@@ -49,24 +55,18 @@ public class Contratacion {
                     System.out.println("INGRESO DE INQUILINOS.");
                     System.out.println("------------------------\n");
                     System.out.print("CUANTOS INQUILINOS DESEA INGRESAR? :");
+                    
                     Scanner resp = new Scanner(System.in);
-                    int cantInq;
-                    cantInq = resp.nextInt();
+                    int cantInq = resp.nextInt();
 
-                    if (cantInq > 10) {
-                        System.out.println("\n-----------------------------------------------------------------");
-                        System.out.println("NO HAY SUFICIENTES PROPIEDADES.\n POR FAVOR INGRESE AL MENOS UNA.");
-                        System.out.println("-----------------------------------------------------------------\n");
-                    } else {
-                        Inquilino arreglo[] = new Inquilino[cantInq];
 
-                        System.out.println("INGRESO DE DATOS \n");
-                        for (int i = 0; i < cantInq; i++) {
-                            Inquilino inq = new Inquilino();
-                            inq.pedirDatos();
-                            arreglo[i] = inq;
+                    System.out.println("INGRESO DE DATOS.\n");
+                    for (int i = 0; i < cantInq; i++) {
+                        inquilino1.pedirDatos();
+                        ListInquilino.add(inquilino1);
+                    
                         }
-                    }
+                    
 
                     break;
 
@@ -78,31 +78,32 @@ public class Contratacion {
                     Scanner respue = new Scanner(System.in);
                     int cantPropie = respue.nextInt();
 
-                    Propiedad vector[] = new Propiedad[cantPropie];
 
                     System.out.println("INGRESO DE DATOS.\n");
                     for (int i = 0; i < cantPropie; i++) {
-                        Propiedad propied = new Propiedad();
-                        propied.pedirDatos();
-                        vector[i] = propied;
+                        propiedad1.pedirDatos();
+                        ListPropiedad.add(propiedad1);
                     }
 
                     break;
 
                 case 4:
-                    System.out.print("Propietario: ");
-                    /*                   
-                    System.out.println("ALTA NUEVO CONTRATO: ");
-                    
-                    contrato array[] = new contrato[1];
-                        
-                    System.out.println("INGRESE LOS ARTICULOS: \n");
-                    for(int i = 0; i < cantArt; i++){  
-                        Articulo art = new Articulo();
-                        art.pedirArt();
-                        array[i] = art;
+                    ArrayList<Propietario> ListPropietario = propietario1.getPropietarios();
+                    int i = 0;
+                    while(i < ListPropietario.size()){
+                        System.out.println(propietario1.getPropietarios());
+                        i++;
                     }
-                    
+                    /*
+                    for(int i = 0; i <= tamanio; i++){  
+                        System.out.println("Datos: +(ListPropiedad(i)");
+                    }
+                    for(int i = 0; i <= tamanio; i++){  
+                        System.out.println("Datos: +(ListInquilino(i)");
+                    }
+                    while(iterator.hasNext()){  
+                        System.out.println(iterator.next());
+                    }
                      */
                     break;
 
@@ -114,11 +115,11 @@ public class Contratacion {
                 case 6:
 
                     System.out.println("LISTADO INQUILINOS Y PROPIEDADES");
-
+                    break;
                 case 7:
 
                     System.out.println("LISTADO DE PAGOS POR PROPIEDADES");
-
+                    break;
                 default:
 
                     System.out.println("ERROR, ELIJA UNA OPCION VALIDA...\n\n");
