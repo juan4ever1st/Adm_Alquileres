@@ -1,51 +1,61 @@
-
 package Clases;
 
 import java.util.Scanner;
 
 public class Contratacion {
-    public static void main(String[] args) { /*Metodo main declarado en Principal*/
-      //Instanciamos nuevos objetos de la clases persona, articulo y venta
-        Persona propietario = new Persona();
-        Persona inquilino = new Persona();
-        Fecha hoy = new Fecha();
+
+    @SuppressWarnings("empty-statement")
+    public static void main(String[] args) {
+        /*Metodo main declarado en Principal*/
+        //Instanciamos nuevos objetos de la clases persona, articulo y venta
         
+        Persona inquilino = new Persona();
+        Propiedad propie = new Propiedad();
+        Fecha hoy = new Fecha();
 
         // MENU DE OPCIONES CON DO
         int opcion;
-        do{
+        do {
             System.out.flush();
             Menu menu1 = new Menu();
             menu1.mostrarMenu();
             System.out.println("INGRESE SU OPCION: ");
             Scanner opc = new Scanner(System.in);
             opcion = opc.nextInt();
-            
-            switch (opcion){
-                case 1:
-                {
-                    propietario.pedirDatos();
-                    break;
-                }
+
+            switch (opcion) {
+                case 1: 
+                    
+                        break;
+   
                 case 2:
-                {
-                    inquilino.pedirDatos();
+                    
+                    System.out.println("INGRESO DE INQUILINOS.\n");
+                    System.out.println("CUANTOS INQUILIINOS DESEA INGRESAR?");
+                    Scanner resp = new Scanner(System.in);
+                    int cantInq;
+                    cantInq = resp.nextInt();
+                    
+                    while(array.length < cantInq){
+                        inquilino.pedirDatos();
+                    }
+                    
                     break;
-                }
+                
                 case 3:
-                {
-                    propiedades.pedirDatos();
+                
+                    prop.pedirDatos();
                     break;
-                }
+                
                 case 4:
-                {
+                
                                        
                     System.out.println("INGRESAR NUEVO CONTRATO: ");
                     
                     Scanner respuesta = new Scanner(System.in);
                     int cantArt = respuesta.nextInt();
                     
-                    Articulo array[] = new Articulo[cantArt];
+                    contrato array[] = new contrato[cantArt];
                         
                     System.out.println("INGRESE LOS ARTICULOS: \n");
                     for(int i = 0; i < cantArt; i++){  
@@ -70,26 +80,26 @@ public class Contratacion {
                     venta1.mostrarFactura();
                     System.out.println("*****************************************************************************\n\n");
                     break;
-                }
+                
                 case 5:
-                {
+                
                     System.out.println("PAGOS");
                     break;
-                }
+                
                 case 6:
-                {
+                
                     System.out.println("LISTADO INQUILINOS Y PROPIEDADES");
-                }
+                
                 case 7:
-                {
+                
                     System.out.println("LISTADO DE PAGOS POR PROPIEDADES");
-                }
+                
                 default:
-                {
+                
                     System.out.println("ERROR, ELIJA UNA OPCION VALIDA...\n\n");
                     break;
-                }
+                
             }
-        }while(opcion != 7);
+        }while(opcion != 8);
     }
 }
